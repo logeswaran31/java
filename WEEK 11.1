@@ -1,0 +1,34 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number of elements to add to the HashSet
+       
+        int n = scanner.nextInt();
+
+        HashSet<Integer> hashSet = new HashSet<>();
+
+        // Add elements to the HashSet
+      
+        for (int i = 0; i < n; i++) {
+            int element = scanner.nextInt();
+            hashSet.add(element);
+        }
+
+        // Input the number to search in the HashSet
+        
+        int searchElement = scanner.nextInt();
+
+        // Check if the element is in the HashSet
+        if (hashSet.contains(searchElement)) {
+            System.out.println(searchElement + " was found in the set.");
+        } else {
+            System.out.println(searchElement + " was not found in the set.");
+        }
+
+        scanner.close();
+    }
+}

@@ -1,0 +1,15 @@
+import java.util.*;
+public class E2{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        int a=s.nextInt();
+        int c=s.nextInt();
+        if(a>8 && c>4){
+            System.out.println("Yes");
+        }
+        else if(a<2 | c<2)
+            System.out.println("No");
+        else
+            System.out.println("Maybe");
+    }
+}

@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+interface Sports {
+    void setHomeTeam(String name);
+    void setVisitingTeam(String name);
+}
+
+interface Football extends Sports {
+    void homeTeamScored(int points);
+    void visitingTeamScored(int points);
+}
+
+class College implements Football {
+    private String homeTeam;
+    private String visitingTeam;
+    private int homeTeamPoints = 0;
+    private int visitingTeamPoints = 0;
+
+    public void setHomeTeam(String name) {
+        this.homeTeam = name;
+    }
+
+    public void setVisitingTeam(String name) {
+        this.visitingTeam = name;
+    }
+
+    public void homeTeamScored(int points) {
+        homeTeamPoints += points;
+        System.out.println(homeTeam + " " + points + " scored");
+    }
+
+    public void visitingTeamScored(int points) {
+        visitingTeamPoints += points;
+        System.out.println(visitingTeam + " " + points + " scored");
+    }
+
+    public void winningTeam() {
+        if (homeTeamPoints > visitingTeamPoints) {
+            System.out.println(homeTeam + " is the winner!");
+        } else if (homeTeamPoints < visitingTeamPoints) {
+            System.out.println(visitingTeam + " is the winner!");
+        } else {
+            System.out.println("It's a tie match.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Get home team name
+        String hname = sc.nextLine();
+
+        // Get visiting team name
+        String vteam = sc.nextLine();
+
+        // Create College object
+        College match = new College();
+        match.setHomeTeam(hname);
+        match.setVisitingTeam(vteam);
+
+        // Get points scored by home team
+        int htpoints = sc.nextInt();
+        match.homeTeamScored(htpoints);
+
+        // Get points scored by visiting team
+        int vtpoints = sc.nextInt();
+        match.visitingTeamScored(vtpoints);
+
+        // Determine and print the winning team
+        match.winningTeam();
+
+        sc.close();
+    }
+}

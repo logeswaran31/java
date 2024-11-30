@@ -1,0 +1,12 @@
+import java.util.*;
+public class Last
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int a=s.nextInt();
+        a=Math.abs(a);
+        int b=a%10;
+        System.out.println(b);
+    }
+}

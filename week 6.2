@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class StringManipulation {
+
+    // Method to find the alphabet based on the given logic
+    public static char findChar(char ch1, char ch2) {
+        if (ch1 == ch2) {
+            // Case 1: If both characters are the same
+            return ch1;
+        } else {
+            // Case 2: If both characters are different
+            int max = Math.max(ch1 - 'a' + 1, ch2 - 'a' + 1);
+            int min = Math.min(ch1 - 'a' + 1, ch2 - 'a' + 1);
+            int pos = max - min;
+            return (char) ('a' + pos - 1);  // Position starts at 1, so adjust by -1
+        }
+    }
+
+    // Method to process the input string and generate the output
+    public static String processString(String input) {
+        // Split the input string by ":"
+        String[] pairs = input.split(":");
+        StringBuilder result = new StringBuilder();
+
+        // Process each pair of characters
+        for (String pair : pairs) {
+            char ch1 = pair.charAt(0);
+            char ch2 = pair.charAt(1);
+            // Add the corresponding character to the result
+            result.append(findChar(ch1, ch2));
+        }
+
+        // Convert result to uppercase as specified
+        return result.toString().toUpperCase();
+    }
+
+    public static void main(String[] args) {
+        // Using Scanner to take input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input from use
+        //System.out.print("Enter the string (e.g., ww:ii:pp:rr:oo): ");
+        String input = scanner.nextLine();
+        
+        // Process the string and get the result
+        String result = processString(input);
+        
+        // Print the result
+        System.out.println( result);
+        
+        // Close the scanner
+        scanner.close();
+    }
+}

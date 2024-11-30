@@ -1,0 +1,15 @@
+import java.util.*;
+public class Odd
+{
+    public static void main (String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int a=s.nextInt();
+        if (a==0) 
+            System.out.println('1');
+        else if (a%2==0) 
+            System.out.println('1');
+        else 
+            System.out.println('2');
+    }
+}

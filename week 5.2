@@ -1,0 +1,75 @@
+// Parent class BankAccount
+ class BankAccount {
+    // Private fields to store the account number and balance
+    private String accountNumber;
+    private double balance;
+
+    // Constructor to initialize account number and balance
+    public BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    // Method to deposit an amount into the account
+    public void deposit(double amount) {
+        balance += amount; // Increase the balance by the deposit amount
+    }
+
+    // Method to withdraw an amount from the account
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount; // Decrease the balance by the withdrawal amount
+        } else {
+            System.out.println("Insufficient balance"); // Notify insufficient balance
+        }
+    }
+
+    // Method to get the current balance
+    public double getBalance() {
+        return balance; // Return the current balance
+    }
+}
+// Child class SavingsAccount
+ class SavingsAccount extends BankAccount {
+    // Constructor to initialize account number and balance
+    public SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance); // Call the parent class constructor
+    }
+
+    // Override the withdraw method from the parent class
+    @Override
+    public void withdraw(double amount) {
+        if (getBalance() - amount < 100) {
+            System.out.println("Minimum balance of $100 required!"); // Check minimum balance
+        } else {
+            super.withdraw(amount); // Call the parent class withdraw method
+        }
+    }
+}
+// Main class to test the BankAccount and SavingsAccount classes
+public class Main {
+    public static void main(String[] args) {
+        // Create a BankAccount object (A/c No. BA1234) with initial balance of $500
+        System.out.println("Create a Bank Account object (A/c No. BA1234) with initial balance of $500:");
+        BankAccount BA1234 = new BankAccount("BA1234", 500);
+
+        // Deposit $1000 into account BA1234
+        System.out.println("Deposit $1000 into account BA1234:");
+        BA1234.deposit(1000);
+        System.out.println("New balance after depositing $1000: $" + BA1234.getBalance());
+
+        // Withdraw $600 from account BA1234
+        System.out.println("Withdraw $600 from account BA1234:");
+        BA1234.withdraw(600);
+        System.out.println("New balance after withdrawing $600: $" + BA1234.getBalance());
+
+        // Create a SavingsAccount object (A/c No. SA1000) with initial balance of $300
+        System.out.println("Create a SavingsAccount object (A/c No. SA1000) with initial balance of $300:");
+        SavingsAccount SA1000 = new SavingsAccount("SA1000", 300);
+
+        // Try to withdraw $250 from SA1000
+        System.out.println("Try to withdraw $250 from SA1000!");
+        SA1000.withdraw(250);
+        System.out.println("Balance after trying to withdraw $250: $" + SA1000.getBalance());
+    }
+}

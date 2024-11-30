@@ -1,0 +1,51 @@
+import java.util.*;
+class prog{
+    public static void main(String ae[]){
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        String arr[] = new String[n];
+        scan.nextLine();
+        String str = scan.nextLine();
+        String temp = "";
+        int j=0;
+        int l=str.length();
+        for(int i = 0;i<l;i++){
+            if(str.charAt(i)==' '){
+                arr[j] = temp;
+                temp ="";
+                j++;
+            }
+            else{
+                temp +=str.charAt(i); 
+            }
+        }
+        arr[j] = temp;
+        String s = "";
+        char [] cha ={'a','A','e','E','i','I','o','O','U','u'};
+        for(int i=0;i<n;i++){
+            int c=0;
+            char [] ar = arr[i].toCharArray();
+            char ch1 = ar[0];
+            char ch2 = ar[ar.length -1];
+            for(char k : cha){
+                if(k==ch1){
+                    c++;
+                }
+                if(k==ch2){
+                    c++;    
+                }
+            }
+            if(c==2){
+                s+=arr[i];
+            }
+        }
+        if(s==""){
+            System.out.print("no matches found");
+        }
+        else{
+            System.out.print(s.toLowerCase());
+        }
+        
+      
+    }
+}

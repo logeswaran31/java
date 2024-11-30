@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+// Define the Playable interface
+interface Playable {
+    // Abstract method to play the respective sport
+    void play();
+}
+
+// Football class implementing Playable interface
+class Football implements Playable {
+    String name;
+
+    // Constructor
+    public Football(String name) {
+        this.name = name;
+    }
+
+    // Override the play method
+    public void play() {
+        System.out.println(name + " is Playing football");
+    }
+}
+
+// Volleyball class implementing Playable interface
+class Volleyball implements Playable {
+    String name;
+
+    // Constructor
+    public Volleyball(String name) {
+        this.name = name;
+    }
+
+    // Override the play method
+    public void play() {
+        System.out.println(name + " is Playing volleyball");
+    }
+}
+
+// Basketball class implementing Playable interface
+class Basketball implements Playable {
+    String name;
+
+    // Constructor
+    public Basketball(String name) {
+        this.name = name;
+    }
+
+    // Override the play method
+    public void play() {
+        System.out.println(name + " is Playing basketball");
+    }
+}
+
+// Main class to test the functionality
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for Football player
+       
+        String footballPlayerName = scanner.nextLine();
+        Football footballPlayer = new Football(footballPlayerName);
+
+        // Input for Volleyball player
+        
+        String volleyballPlayerName = scanner.nextLine();
+        Volleyball volleyballPlayer = new Volleyball(volleyballPlayerName);
+
+        // Input for Basketball player
+        
+        String basketballPlayerName = scanner.nextLine();
+        Basketball basketballPlayer = new Basketball(basketballPlayerName);
+
+        // Call the play method for each player
+        footballPlayer.play();
+        volleyballPlayer.play();
+        basketballPlayer.play();
+
+        scanner.close();
+    }
+}

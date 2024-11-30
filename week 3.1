@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class NumberProcessor {
+    
+    public static int processNumbers(List<Integer> numbers) {
+        int totalSum = 0;
+
+        for (int i = 0; i < numbers.size(); i++) {
+            int num = numbers.get(i);
+            int digit;
+
+            // Extract the digit corresponding to the index
+            if (i >= String.valueOf(num).length()) {
+                digit = 0; // Treat as 0 if index exceeds the number of digits
+            } else {
+                digit = (num / (int) Math.pow(10, i)) % 10; // Get the digit
+            }
+
+            // If the digit is less than the index, treat it as 0
+            if (digit < i) {
+                digit = 0;
+            }
+
+            totalSum += digit * digit; // Square the digit and add to total
+        }
+
+        return totalSum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        int n = scanner.nextInt();
+        
+        List<Integer> inputNumbers = new ArrayList<>();
+
+        
+        for (int i = 0; i < n; i++) {
+            int num = scanner.nextInt();
+            inputNumbers.add(num);
+        }
+
+        int result = processNumbers(inputNumbers);
+        System.out.println( result);
+        
+        scanner.close();
+    }
+}

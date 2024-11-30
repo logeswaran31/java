@@ -1,0 +1,54 @@
+import java.util.*;
+abstract class Shape{
+    abstract void calculatearea();
+}
+class Circle extends Shape{
+    float rad;
+    Circle(float rad){
+        this.rad = rad;
+    }
+    void calculatearea(){
+        System.out.format("Area of a circle: %.2f\n",3.14159*rad*rad);
+    }
+}
+class Rectangle extends Shape{
+    float l;
+    float br;
+    Rectangle(float l,float br){
+        this.l = l;
+        this.br = br;
+    }
+    void calculatearea(){
+        System.out.format("Area of a Rectangle: %.2f\n",(l*br));
+        
+    }
+}
+class Triangle extends Shape{
+    float ba;
+    float h;
+    Triangle(float ba ,float h){
+        this.ba = ba;
+        this.h = h;
+    }
+    void calculatearea(){
+        System.out.format("Area of a Triangle: %.2f",0.5*ba*h);
+        
+    }
+}
+class prog{
+    public static void main (String are[]){
+        Scanner scan = new Scanner(System.in);
+        float rad = scan.nextFloat();
+        float l = scan.nextFloat();
+        float br = scan.nextFloat();
+        float ba = scan.nextFloat();
+        float h = scan.nextFloat();
+        Circle c = new Circle(rad);
+        Rectangle r = new Rectangle(l,br);
+        Triangle t = new Triangle(ba,h);
+        c.calculatearea();
+        r.calculatearea();
+        t.calculatearea();
+        
+    }
+}

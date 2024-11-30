@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Longest{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+        int size =sc.nextInt();
+        int[] array = new int[size];
+        for (int i =0;i<size;i++){
+            array[i]= sc.nextInt();
+        }
+        int result=sum(array);
+        if(result>=150)
+        {result = result + 24;}
+        System.out.println(result);
+        sc.close();
+    }
+    public static int sum(int[]arr){
+        int maxSum=0;
+        int currentSum=0;
+        int maxLength=0;
+        int currentLength=0;
+        int maxNegative =Integer.MIN_VALUE;
+        
+        for(int num:arr){
+            if(num>0){
+                currentSum+=num;
+                currentLength++;
+            }
+            else{
+                if(currentLength>maxLength){
+                    maxLength=currentLength;
+                    maxSum=currentSum;
+                }
+                else if(currentLength == maxLength){
+                    maxSum=Math.max(maxSum,currentSum);
+                }
+                currentSum=0;
+                currentLength=0;
+            }
+            if(num<0){
+                maxNegative =Math.max(maxNegative,num);
+            }
+        }
+        if(currentLength>maxLength){
+            maxSum=currentSum;
+        }
+        else if (currentLength == maxLength){
+            maxSum=Math.max(maxSum,currentSum);
+        }
+        if(maxLength==0){
+            return maxNegative;
+    }
+        return maxSum;
+    
+}}

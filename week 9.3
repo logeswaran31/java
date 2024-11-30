@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class ArrayDivisionExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Reading the number of elements
+            int n = scanner.nextInt();
+            
+            // Creating the array with the given input
+            int[] array = new int[n];
+
+            for (int i = 0; i < n; i++) {
+                array[i] = scanner.nextInt();
+            }
+
+            // Attempting to divide the 0th element by the 1st element
+           // System.out.println("Trying to divide: " + array[0] + " / " + array[1]);
+            int result = array[0] / array[1]; // May throw ArithmeticException if array[1] is 0
+           // System.out.println("Result of division: " + result);
+
+            // Attempting to access the 3rd index
+            System.out.println("Trying to access index 3: " + array[3]);
+
+        } catch (ArithmeticException e) {
+            System.out.println("java.lang.ArithmeticException: / by zero");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("java.lang.ArrayIndexOutOfBoundsException: " + e.getMessage());
+        } finally {
+            System.out.println("I am always executed");
+        }
+
+        scanner.close();
+    }
+}

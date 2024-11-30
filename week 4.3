@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Circle {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius; // Area = πr²
+    }
+
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius; // Circumference = 2πr
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double radius = sc.nextDouble(); // Input radius
+
+        Circle circle = new Circle(radius);
+        
+        // Output area and circumference formatted to 2 decimal places
+        System.out.printf("Area = %.2f\n", circle.calculateArea());
+        System.out.printf("Circumference = %.2f\n", circle.calculateCircumference());
+
+        sc.close();
+    }
+}

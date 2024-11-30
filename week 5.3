@@ -1,0 +1,79 @@
+// Base class Mobile
+class Mobile {
+    String brand;
+    String model;
+
+    // Constructor for Mobile
+    public Mobile(String brand, String model) {
+        this.brand = brand;
+        this.model = model;
+    }
+
+    // Method to print basic mobile manufacturing message
+    public void basicMobile() {
+        System.out.println("Basic Mobile is Manufactured");
+    }
+}
+
+// Subclass CameraMobile extending Mobile
+class CameraMobile extends Mobile {
+    int cameraQuality;
+
+    // Constructor for CameraMobile
+    public CameraMobile(String brand, String model, int cameraQuality) {
+        super(brand, model);  // Call the parent constructor
+        this.cameraQuality = cameraQuality;
+    }
+
+    // Overriding the basicMobile method to print Camera Mobile is Manufactured
+    @Override
+    public void basicMobile() {
+        System.out.println("Camera Mobile is Manufactured");
+    }
+
+    // Additional method to print Camera Mobile with 5MG px
+    public void cameraDetails() {
+        System.out.println("Camera Mobile with 5MG px");
+    }
+}
+
+// Subclass AndroidMobile extending CameraMobile
+class AndroidMobile extends CameraMobile {
+    String androidVersion;
+
+    // Constructor for AndroidMobile
+    public AndroidMobile(String brand, String model, int cameraQuality, String androidVersion) {
+        super(brand, model, cameraQuality);  // Call the parent constructor
+        this.androidVersion = androidVersion;
+    }
+
+    // Overriding the basicMobile method to print Android Mobile is Manufactured
+    @Override
+    public void basicMobile() {
+        System.out.println("Android Mobile is Manufactured");
+    }
+
+    // Method to print Touch Screen Mobile is Manufactured
+    public void touchScreen() {
+        System.out.println("Touch Screen Mobile is Manufactured");
+    }
+}
+
+// Main class to test the functionality
+public class Main {
+    public static void main(String[] args) {
+        // Creating a basic mobile object
+        Mobile basicPhone = new Mobile("Nokia", "3310");
+        basicPhone.basicMobile();  // Output: Basic Mobile is Manufactured
+
+        // Creating a camera mobile object
+        CameraMobile cameraPhone = new CameraMobile("Sony", "Xperia", 5);
+        cameraPhone.basicMobile();  // Output: Camera Mobile is Manufactured
+
+        // Creating an Android mobile object
+        AndroidMobile androidPhone = new AndroidMobile("Samsung", "Galaxy S21", 108, "11");
+        androidPhone.basicMobile();  // Output: Android Mobile is Manufactured
+        androidPhone.cameraDetails();  // Output: Camera Mobile with 5MG px
+        androidPhone.touchScreen();  // Output: Touch Screen Mobile is Manufactured
+    }
+}

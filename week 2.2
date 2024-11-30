@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class prog {
+    public int fact(int n) {
+        if (n < 0) {
+            return -1;
+        }
+       
+        int temp = 0;
+        for (int i = 5; n / i >= 1; i *= 5) {
+            temp += n / i;
+        }
+       
+        return temp;
+    }
+
+    public static void main(String args[]) {
+        
+        Scanner get = new Scanner(System.in);
+        int x = get.nextInt();
+       
+        prog o = new prog();
+       
+        System.out.println(o.fact(x));
+    }
+}

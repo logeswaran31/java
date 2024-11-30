@@ -1,0 +1,42 @@
+public class Student {
+    private String name;
+    private int rollno;
+
+    // No-arg constructor
+    public Student() {
+        System.out.println("No-arg constructor is invoked");
+        this.name = null;
+        this.rollno = 0;
+    }
+
+    // Constructor with one argument (name)
+    public Student(String name) {
+        this.name = name;
+        this.rollno = 0;
+        System.out.println("1 arg constructor is invoked");
+    }
+
+    // Constructor with two arguments (name and rollno)
+    public Student(String name, int rollno) {
+        this.name = name;
+        this.rollno = rollno;
+        System.out.println("2 arg constructor is invoked");
+    }
+
+    // Method to display student details
+    public void display() {
+        System.out.println("Name =" + name + " , Roll no = " + rollno);
+    }
+
+    public static void main(String[] args) {
+        // Creating objects using different constructors
+        Student student1 = new Student();                  // No-arg constructor
+        Student student2 = new Student("Rajalakshmi");    // 1-arg constructor
+        Student student3 = new Student("Lakshmi", 101);    // 2-arg constructor
+
+        // Displaying details for each student
+        student1.display();                                // Name = null, Roll no = 0
+        student2.display();                                // Name = Rajalakshmi, Roll no = 0
+        student3.display();                                // Name = Lakshmi, Roll no = 101
+    }
+}

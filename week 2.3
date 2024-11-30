@@ -1,0 +1,30 @@
+import java.util.*;
+public class E2{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        if (n<0 || n>99){
+            System.out.println("ENTER crt no");
+        }
+        else {
+            printE2(n);
+            
+        }
+        s.close();
+        }
+        public static void printE2(int n){
+            String[] units={
+                "Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+            String nStr=String.valueOf(n);
+            for(char digit : nStr.toCharArray()){
+                int dv=Character.getNumericValue(digit);
+                if(dv>=0 && dv<=9){
+                    System.out.print(units[dv]+" ");
+                
+                
+                }
+            }
+            System.out.println();
+            }
+        }
+    

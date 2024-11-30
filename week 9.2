@@ -1,0 +1,36 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ArrayInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Take input for array size
+           // System.out.println("Enter the size of the array:");
+            int size = scanner.nextInt();
+
+            // Initialize the array
+            int[] numbers = new int[size];
+
+            //System.out.println(size );
+            int sum = 0;
+
+            // Take input for each element in the array
+            for (int i = 0; i < size; i++) {
+                numbers[i] = scanner.nextInt();
+                sum += numbers[i];
+            }
+
+            // If no exception, print the total sum
+            System.out.println(sum);
+
+        } catch (InputMismatchException e) {
+            // Handle non-integer input
+            System.out.println("You entered bad data.");
+        } finally {
+            // Closing the scanner to avoid resource leaks
+            scanner.close();
+        }
+    }
+}

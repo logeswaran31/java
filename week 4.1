@@ -1,0 +1,64 @@
+public class Mobile {
+    private String manufacturer;
+    private String operating_system;
+    public String color;
+    private int cost;
+
+    // Parameterized constructor
+    public Mobile(String manufacturer, String operating_system, String color, int cost) {
+        this.manufacturer = manufacturer;
+        this.operating_system = operating_system;
+        this.color = color;
+        this.cost = cost;
+    }
+
+    // Getter and setter methods
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setOperatingSystem(String operating_system) {
+        this.operating_system = operating_system;
+    }
+
+    public String getOperatingSystem() {
+        return operating_system;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    // Overriding toString() method to print each attribute on a new line
+    @Override
+    public String toString() {
+        return "manufacturer = " + manufacturer + "\n" +
+               "operating_system = " + operating_system + "\n" +
+               "color = " + color + "\n" +
+               "cost = " + cost;
+    }
+
+    public static void main(String[] args) {
+        // Creating a Mobile object with specified values
+        Mobile mobile = new Mobile("Redmi", "Andriod", "Blue", 34000);
+
+        // Displaying the mobile details
+        System.out.println(mobile);
+    }
+}

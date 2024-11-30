@@ -1,0 +1,44 @@
+class College {
+    protected String collegeName;
+
+    public College(String collegeName) {
+        // Initialize the instance variable
+        this.collegeName = collegeName;
+    }
+
+    public void admitted() {
+        System.out.println("A student admitted in " + collegeName);
+    }
+}
+
+class Student extends College {
+    private String studentName;
+    private String department;
+
+    public Student(String collegeName, String studentName, String department) {
+        // Initialize the instance variables
+        super(collegeName); // Call to the parent class constructor
+        this.studentName = studentName;
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        // Return the details of the student
+        return "CollegeName : " + collegeName + "\n" +
+               "StudentName : " + studentName + "\n" +
+               "Department : " + department;
+    }
+}
+
+class prog {
+    public static void main(String[] args) {
+        Student s1 = new Student("REC", "Venkatesh", "CSE");
+        
+        // Invoke the admitted() method
+        s1.admitted();
+        
+        // Print student details
+        System.out.println(s1.toString()); 
+    }
+}

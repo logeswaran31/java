@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class FirstLastElement {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+       
+        int n = scanner.nextInt();
+
+     
+        for (int i = 0; i < n; i++) {
+            arrayList.add(scanner.nextInt());
+        }
+
+        // Check if the ArrayList is not empty
+        if (!arrayList.isEmpty()) {
+            Integer firstElement = arrayList.get(0);
+            Integer lastElement = arrayList.get(arrayList.size() - 1);
+
+            // Output the result
+            System.out.println("ArrayList: " + arrayList);
+            System.out.println("First : " + firstElement + ", Last : " + lastElement);
+        } else {
+            System.out.println("The ArrayList is empty.");
+        }
+
+        scanner.close();
+    }
+}
+

@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class WordProcessor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Input the string of words
+        String input = sc.nextLine();
+        
+        // Input the 2-digit number
+        int number = sc.nextInt();
+        
+        // Split the string into words
+        String[] words = input.split(" ");
+        
+        // Extract the two positions from the 2-digit number
+        int pos1 = number / 10; // first digit (ten's place)
+        int pos2 = number % 10; // second digit (unit's place)
+        
+        // Adjust positions for 0-based index
+        pos1--;
+        pos2--;
+        
+        // Process both words
+        String result1 = processWord(words[pos1]);
+        String result2 = processWord(words[pos2]);
+        
+        // Combine the results and print
+        String result = result1 + " " + result2;
+        System.out.println(result);
+    }
+    
+    // Function to process each word
+    private static String processWord(String word) {
+        int len = word.length();
+        int mid = len / 2;
+
+        // Handle odd-length words correctly by including the middle letter in both parts
+        String middleToBegin;
+        String middleToEnd;
+
+        if (len % 2 == 0) {
+            // Even length
+            middleToBegin = new StringBuilder(word.substring(0, mid)).reverse().toString();
+            middleToEnd = word.substring(mid);
+        } else {
+            // Odd length
+            middleToBegin = new StringBuilder(word.substring(0, mid + 1)).reverse().toString();
+            middleToEnd = word.substring(mid);
+        }
+
+        // Combine both parts
+        return middleToBegin + middleToEnd;
+    }
+}

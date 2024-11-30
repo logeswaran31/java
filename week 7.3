@@ -1,0 +1,52 @@
+// Define the RBI interface
+interface RBI {
+    // Variable declaration
+    String parentBank = "RBI";
+
+    // Abstract method
+    double rateOfInterest();
+
+    // Default method
+    default void policyNote() {
+        System.out.println("RBI has a new Policy issued in 2023");
+    }
+
+    // Static method
+    static void regulations() {
+        System.out.println("RBI has updated new regulations in 2024.");
+    }
+}
+
+// SBI class implementing RBI interface
+class SBI implements RBI {
+    // Implementing the abstract method
+    public double rateOfInterest() {
+        return 7.6;
+    }
+}
+
+// Karur class implementing RBI interface
+class Karur implements RBI {
+    // Implementing the abstract method
+    public double rateOfInterest() {
+        return 7.4;
+    }
+}
+
+// Main class to test the functionality
+public class Main {
+    public static void main(String[] args) {
+        // RBI policies and regulations
+        RBI rbi = new SBI();  // Can be any class implementing RBI
+        rbi.policyNote();     // Default method
+        RBI.regulations();    // Static method
+
+        // SBI bank details
+        SBI sbi = new SBI();
+        System.out.println("SBI rate of interest: " + sbi.rateOfInterest() + " per annum.");
+
+        // Karur bank details
+        Karur karur = new Karur();
+        System.out.println("Karur rate of interest: " + karur.rateOfInterest() + " per annum.");
+    }
+}

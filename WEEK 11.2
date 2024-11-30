@@ -1,0 +1,41 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class CompareSets {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // First HashSet
+       
+        int n1 = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        HashSet<String> set1 = new HashSet<>();
+        
+        for (int i = 0; i < n1; i++) {
+            set1.add(scanner.nextLine());
+        }
+
+        // Second HashSet
+        
+        int n2 = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        HashSet<String> set2 = new HashSet<>();
+       
+        for (int i = 0; i < n2; i++) {
+            set2.add(scanner.nextLine());
+        }
+
+        // Retain only common elements
+        set1.retainAll(set2);
+
+        // Display common elements
+       
+        for (String element : set1) {
+            System.out.println(element);
+        }
+
+        scanner.close();
+    }
+}

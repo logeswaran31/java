@@ -1,0 +1,15 @@
+import java.util.*;
+public class Addlast
+{
+    public static void main (String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int a=s.nextInt();
+        int b=s.nextInt();
+        a=Math.abs(a);
+        b=Math.abs(b);
+        a=a%10;
+        b=b%10;
+        System.out.println(a+b);
+    }
+}

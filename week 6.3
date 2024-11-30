@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class StringMergeSort {
+
+    public static String mergeAndSort(String input1, String input2) {
+        // Step 1: Concatenate both strings
+        String concatenated = input1 + input2;
+
+        // Step 2: Remove duplicate characters and whitespaces
+        Set<Character> uniqueChars = new HashSet<>();
+        for (char ch : concatenated.toCharArray()) {
+            if (ch != ' ') {
+                uniqueChars.add(ch);
+            }
+        }
+
+        // Step 3: Sort the characters in descending order
+        List<Character> sortedList = new ArrayList<>(uniqueChars);
+        Collections.sort(sortedList, Collections.reverseOrder());
+
+        // Step 4: Create the final string
+        StringBuilder result = new StringBuilder();
+        for (char ch : sortedList) {
+            result.append(ch);
+        }
+
+        // Step 5: If the result is empty, return "null", else return the result
+        return result.length() > 0 ? result.toString() : "null";
+    }
+
+    public static void main(String[] args) {
+        // Using Scanner to take input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        //nter the first string: ");
+        String input1 = scanner.nextLine();
+        
+        // Input 2
+       
+        String input2 = scanner.nextLine();
+        
+        // Calling the mergeAndSort method and printing the result
+        String result = mergeAndSort(input1, input2);
+        System.out.println(result);
+
+        // Closing the scanner
+        scanner.close();
+    }
+}

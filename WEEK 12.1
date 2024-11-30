@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class StringTransformer {
+
+    public static String reverseWordsAndAdjustCase(String sentence, int caseOption) {
+        String[] words = sentence.split(" ");
+        StringBuilder modifiedSentence = new StringBuilder();
+
+        for (String word : words) {
+            String reversedWord = reverseWord(word, caseOption);
+            modifiedSentence.append(reversedWord).append(" ");
+        }
+
+        // Remove the extra space at the end
+        return modifiedSentence.toString().trim();
+    }
+
+    private static String reverseWord(String word, int caseOption) {
+        StringBuilder reversedWord = new StringBuilder();
+
+        // Reverse the word
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversedWord.append(word.charAt(i));
+        }
+
+        // Adjust case if caseOption is 1
+        if (caseOption == 1) {
+            for (int i = 0; i < word.length(); i++) {
+                char originalChar = word.charAt(i);
+                char reversedChar = reversedWord.charAt(i);
+
+                if (Character.isLetter(originalChar)) {
+                    if (Character.isUpperCase(originalChar)) {
+                        reversedWord.setCharAt(i, Character.toUpperCase(reversedChar));
+                    } else {
+                        reversedWord.setCharAt(i, Character.toLowerCase(reversedChar));
+                    }
+                }
+            }
+        }
+
+        return reversedWord.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the sentence
+        
+        String sentence = scanner.nextLine();
+
+        // Input the case option (0 or 1)
+       
+        int caseOption = scanner.nextInt();
+
+        // Process and print the result
+        String result = reverseWordsAndAdjustCase(sentence, caseOption);
+        System.out.println(result);
+
+        scanner.close();
+    }
+}

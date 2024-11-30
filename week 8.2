@@ -1,0 +1,25 @@
+class FinalExample {
+
+    final int maxSpeed = 120;
+
+    public  final void displayMaxSpeed() {
+        System.out.println("The maximum speed is: " + maxSpeed + " km/h");
+    }
+}
+
+class SubClass extends FinalExample {
+
+    public void showDetails() {
+        System.out.println("This is a subclass of FinalExample.");
+    }
+}
+
+class prog {
+    public static void main(String[] args) {
+        FinalExample obj = new FinalExample();
+        obj.displayMaxSpeed();
+
+        SubClass subObj = new SubClass();
+        subObj.showDetails();
+    }
+}

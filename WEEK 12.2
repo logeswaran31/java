@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Decoder {
+
+    // Decodes the input sequence of 0's and 1's into a word
+    public static String decode(String encoded) {
+        StringBuilder decodedWord = new StringBuilder();
+
+        // Split the encoded string by "1" to get the sequences of zeros
+        String[] segments = encoded.split("1");
+
+        for (String segment : segments) {
+            // Get the length of the segment, which represents the number of zeros
+            int zeroCount = segment.length();
+
+            // Ignore empty segments resulting from consecutive 1's
+            if (zeroCount > 0) {
+                // Calculate the letter by subtracting zeroCount-1 from 'Z'
+                char decodedChar = (char) ('Z' - (zeroCount - 1));
+                decodedWord.append(decodedChar);
+            }
+        }
+
+        return decodedWord.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the encoded string
+        
+        String encoded = scanner.nextLine();
+
+        // Decode and print the result
+        String result = decode(encoded);
+        System.out.println(result);  // Print the decoded word
+
+        scanner.close();
+    }
+}

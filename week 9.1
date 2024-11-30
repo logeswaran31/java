@@ -1,0 +1,35 @@
+class OddNumberException extends Exception {
+    public OddNumberException(String message) {
+        super(message);
+    }
+}
+
+public class prog {
+
+    public static void main(String[] args) {
+        // First test with even number 82
+        try {
+            int n = 82;
+            tryNumber(n);
+        } catch (OddNumberException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // Second test with odd number 37
+        try {
+            int n = 37;
+            tryNumber(n);
+        } catch (OddNumberException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    // Method to check if the number is even or odd
+    public static void tryNumber(int n) throws OddNumberException {
+        if (n % 2 == 0) {
+            System.out.println(n + " is even.");
+        } else {
+            throw new OddNumberException(n + " is odd.");
+        }
+    }
+}

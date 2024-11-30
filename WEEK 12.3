@@ -1,0 +1,49 @@
+import java.util.HashSet;
+
+public class CommonAlphabetsSum {
+
+    // Function to find the common characters and calculate the digital root of their ASCII sum
+    public static int calculateSingleDigitSum(char[] input1, char[] input2) {
+        // Convert input arrays to sets for easier comparison
+        HashSet<Character> set1 = new HashSet<>();
+        HashSet<Character> set2 = new HashSet<>();
+
+        // Add characters from both arrays to respective sets
+        for (char c : input1) set1.add(c);
+        for (char c : input2) set2.add(c);
+
+        // Find common alphabets
+        set1.retainAll(set2);
+
+        // Calculate the sum of ASCII values of common alphabets
+        int sum = 0;
+        for (char c : set1) {
+            sum += (int) c;
+        }
+
+        // Calculate the single digit sum (digital root)
+        return digitalRoot(sum);
+    }
+
+    // Function to calculate the digital root of a number
+    public static int digitalRoot(int n) {
+        // If the number is less than 10, return it
+        if (n < 10) {
+            return n;
+        }
+        // Calculate the digital root using the formula
+        return 1 + (n - 1) % 9;
+    }
+
+    public static void main(String[] args) {
+        // Example input arrays
+        char[] input1 = {'a', 'b', 'c'};
+        char[] input2 = {'b', 'c'};
+
+        // Call the function to calculate the result
+        int result = calculateSingleDigitSum(input1, input2);
+
+        // Print the result
+        System.out.println(result);  // Expected output: 8
+    }
+}
